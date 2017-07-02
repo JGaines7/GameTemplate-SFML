@@ -1,8 +1,8 @@
 #ifndef GAMESTATESIMULATE_H
 #define GAMESTATESIMULATE_H
 
-#include "Simulation.h"
-#include "GameState.h"
+#include <Simulation.h>
+#include "GameState/GameState.h"
 #include "Zombie.h"
 #include "SimRenderer.h"
 #include "imgui.h"
@@ -24,9 +24,17 @@ class GameStateSimulate : public GameState
         Simulation m_simulation;
         SimRenderer m_renderer;
 
+        float m_zoomLevel;
+
         void renderSimulation();
         void renderUi(const float dt);
         void updateWasdMovement(const float dt);
+
+        //private helper functions
+        bool handleMouseInputs(sf::Event event);
+        bool handleKeyboardInputs(sf::Event event);
+        bool handleOther(sf::Event event);
+        bool handleFocus(sf::Event event);
 
 };
 

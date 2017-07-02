@@ -1,7 +1,7 @@
 #ifndef STATEMANAGER_H
 #define STATEMANAGER_H
 
-#include "GameState.h"
+#include "GameState/GameState.h"
 
 class Application;
 

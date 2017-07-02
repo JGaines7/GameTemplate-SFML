@@ -21,6 +21,7 @@ class GameState
         //pointer to main application. Used to access game resources.
         Application* m_app;
 
+
     private:
 
 

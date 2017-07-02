@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "Simulation.h"
 
+
 class SimRenderer
 {
     public:
@@ -16,6 +17,8 @@ class SimRenderer
 
     private:
         //avoid trying to keep local references unless we need to.
+        void drawBg(sf::RenderWindow& window, sf::View& viewport);
+        void drawWorldBounds(sf::RenderWindow& window, sf::View& viewport, Simulation& sim);
 
 };
 

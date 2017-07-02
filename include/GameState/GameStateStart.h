@@ -1,7 +1,7 @@
 #ifndef GAMESTATESTART_H
 #define GAMESTATESTART_H
 
-#include "GameState.h"
+#include "GameState/GameState.h"
 
 class GameStateStart : public GameState
 {

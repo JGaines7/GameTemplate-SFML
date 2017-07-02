@@ -12,7 +12,7 @@ Application::Application() : m_stateManager(this)
 {
     //Setup window
     std::cout << "Construct renderWindow\n";
-    m_renderWindow.create(sf::VideoMode(800, 600), "Swarm Simulator 2: Winter Assault");
+    m_renderWindow.create(sf::VideoMode(1280, 900), "Swarm Simulator 2: Winter Assault");
     m_renderWindow.setFramerateLimit(60);
     m_renderWindow.setVerticalSyncEnabled(true);
 

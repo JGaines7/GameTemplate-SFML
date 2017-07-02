@@ -1,4 +1,4 @@
-#include "GameState.h"
+#include "GameState/GameState.h"
 
 GameState::GameState(Application* app) : m_app(app)
 {
