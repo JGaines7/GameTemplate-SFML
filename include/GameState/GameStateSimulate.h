@@ -36,6 +36,13 @@ class GameStateSimulate : public GameState
         bool handleOther(sf::Event event);
         bool handleFocus(sf::Event event);
 
+        //UI variables until i make class //GUI DEMO TODO
+
+        bool m_paused = false;
+
+        SimulationSettings m_simSettings;
+
+
 };
 
 #endif // GAMESTATESIMULATE_H

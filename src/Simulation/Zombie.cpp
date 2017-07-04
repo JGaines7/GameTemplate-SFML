@@ -2,17 +2,9 @@
 #include "appConfig.h"
 #include "VectorUtilities.h"
 #include <iostream>
-Zombie::Zombie()
+Zombie::Zombie(SimulationSettings* settings) : Entity(settings)
 {
-    m_health = 100;
-    m_maxSpeed = 5;
     m_updateGroup = 0;
-    setRadius(4);
-    setFillColor(config::zombieColor);
-    setOrigin(getRadius(),getRadius());
-
-
-
 }
 
 Zombie::~Zombie()
@@ -43,6 +35,6 @@ void Zombie::chaseClosestHuman(std::vector<Human>& targets)
     }
 
     //modify direction torward hume
-    setVelocity(VectorUtil::trunc(getVelocity() + (VectorUtil::norm(finalDirectionVec) * (1.2f / (minDist))), config::zombieMaxSpeed));
+    setVelocity(VectorUtil::trunc(getVelocity() + (VectorUtil::norm(finalDirectionVec) * (m_activeSimulationSettings->zombieAccelaration / (minDist))), m_activeSimulationSettings->zombieMaxSpeed));
 }
 

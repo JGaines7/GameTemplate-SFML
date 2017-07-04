@@ -7,8 +7,7 @@
 
 namespace VectorUtil
 {
-    sf::Vector2f getViewportTopLeft(sf::View& view);
-    sf::Vector2f getViewportBottomRight(sf::View& view);
+
 
     //Consider finding faster less accurate versions for optimization.
 

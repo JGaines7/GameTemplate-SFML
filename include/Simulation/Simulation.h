@@ -13,14 +13,17 @@ class Simulation
         Simulation();
         virtual ~Simulation();
 
+
+
         //loadSimulation (config + tilemap)
         //saveSimulation
+
+        const SimulationSettings getSimulationSettings() const {return m_settings;}
+        void setSimulationSettings(SimulationSettings settings) { m_settings = settings;}
 
         void stepSimulation();
 
         void startSimulation();
-
-        const sf::Vector2i getWorldSize() const {return m_worldDimensions;} //when we get more of these, make a configuration struct
 
         const std::vector<Zombie>& getZombies() const { return m_zombies;}
         const std::vector<Human>& getHumans() const { return m_humans;}
@@ -35,9 +38,7 @@ class Simulation
         std::vector<Human> m_humans;
 
         sf::Vector2f m_target;
-
-        //SimConfiguration m_configuration
-        sf::Vector2i m_worldDimensions;
+        SimulationSettings m_settings;
 
         unsigned int m_currentUpdateGroup = 0;
         int nextUpdateGroup() {m_currentUpdateGroup = (m_currentUpdateGroup + 1) % m_maxGroups; return m_currentUpdateGroup;}
@@ -48,10 +49,10 @@ class Simulation
         //Map m_map
 
         //helpers
-        sf::Vector2f randomDrift();
+        sf::Vector2f randomDrift(float factor);
         void handleCollisions();
         void handleBorderCollisions();
-        void handleBorderCollision(Entity& ent);
+        void handleBorderCollision(Entity& ent, float rad);
         void checkKills();
 
         void randomSpawnSettings(Entity& ent);

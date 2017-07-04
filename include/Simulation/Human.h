@@ -3,13 +3,14 @@
 
 #include "Entity.h"
 #include "Zombie.h"
+#include "SimConfig.h"
 
 class Zombie;
 
 class Human : public Entity
 {
     public:
-        Human();
+        Human(SimulationSettings* settings);
         virtual ~Human();
 
         void fleeClosestZombie(std::vector<Zombie>& targets);

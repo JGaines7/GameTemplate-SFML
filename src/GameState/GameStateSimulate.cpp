@@ -16,6 +16,10 @@ GameStateSimulate::GameStateSimulate(Application* app) : GameState(app)
     m_zoomLevel = 1.0f;
 
     std::cout << "GamestateSimulate Created!\n";
+
+    //gui demo stuff
+    m_simSettings = m_simulation.getSimulationSettings();
+
 }
 
 GameStateSimulate::~GameStateSimulate()
@@ -50,8 +54,16 @@ void GameStateSimulate::handleEvents()
 void GameStateSimulate::update(const float dt)
 {
     updateWasdMovement(dt);
-    auto& win = m_app->getWindow();
-    m_simulation.stepSimulation();
+
+    //GUI DEMO TODO
+
+    m_simulation.setSimulationSettings(m_simSettings);
+
+    if(!m_paused)
+    {
+        m_simulation.stepSimulation();
+    }
+
 }
 void GameStateSimulate::draw(const float dt)
 {
@@ -87,7 +99,7 @@ void GameStateSimulate::renderUi(const float dt)
     ImGui::Text("WASD to move. Space to reset. Scroll to zoom");
     ImGui::End();
 
-    ImGui::SetNextWindowPos(sf::Vector2f(5,35));
+    ImGui::SetNextWindowPos(sf::Vector2f(5,40));
     if (!ImGui::Begin("Counts", &pOpen, sf::Vector2f(0,0), 0.3f, ImGuiWindowFlags_NoInputs|ImGuiWindowFlags_NoTitleBar|ImGuiWindowFlags_NoResize|ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoSavedSettings))
     {
         ImGui::End();
@@ -97,7 +109,7 @@ void GameStateSimulate::renderUi(const float dt)
     ImGui::Text("Humans: %d Zombies: %d      ", (int)m_simulation.getHumans().size(), (int)m_simulation.getZombies().size());
     ImGui::End();
 
-    ImGui::SetNextWindowPos(sf::Vector2f(5,65));
+    ImGui::SetNextWindowPos(sf::Vector2f(5,75));
     if (!ImGui::Begin("fpsWindow", &pOpen, sf::Vector2f(0,0), 0.3f, ImGuiWindowFlags_NoInputs|ImGuiWindowFlags_NoTitleBar|ImGuiWindowFlags_NoResize|ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoSavedSettings))
     {
         ImGui::End();
@@ -107,6 +119,51 @@ void GameStateSimulate::renderUi(const float dt)
     ImGui::Text("FPS: %.0f", 1.0 / dt);
     ImGui::End();
 
+    ImGui::SetNextWindowPos(sf::Vector2f(5,110));
+    //ImGui::SetNextWindowSize(sf::Vector2f(240,200));
+    ImGuiWindowFlags flags =  ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar ;
+
+    ImGui::Begin("Simulation Settings", &pOpen, flags); // begin window
+    // slider will fill the space and leave 100 pixels for the label
+    ImGui::PushItemWidth(100);
+
+    ImGui::SliderFloat("HumanRadius", &m_simSettings.humanRadius, 1, 15);
+
+    ImGui::SliderFloat("Human Max Speed", &m_simSettings.humanMaxSpeed, 0.5, 15);
+    ImGui::SliderFloat("Human Tracking Falloff", &m_simSettings.humanTrackingFalloff, 0.1, 3);
+    ImGui::SliderFloat("Human Acceleration", &m_simSettings.humanAccelaration, 0.1, 10.0);
+    ImGui::SliderFloat("Human Randomness", &m_simSettings.humanWanderingFactor, 0.0,.01);
+
+    ImGui::Separator();
+
+    ImGui::SliderFloat("ZombieRadius", &m_simSettings.zombieRadius, 1, 15);
+    ImGui::SliderFloat("Zombie Max Speed", &m_simSettings.zombieMaxSpeed, 0.5, 15);
+    ImGui::SliderFloat("Zombie Tracking Falloff", &m_simSettings.zombieTrackingFalloff, 0.1, 3);
+    ImGui::SliderFloat("Zombie Acceleration", &m_simSettings.zombieAccelaration, 0.1, 2.0);
+    ImGui::SliderFloat("Zombie Randomness", &m_simSettings.zombieWanderingFactor, 0.0,.01);
+
+    ImGui::Separator();
+
+    ImGui::LabelText("(Require restart)", "World settings");
+
+    ImGui::SliderInt("# starting zombies", &m_simSettings.numZombies, 1,5000);
+    ImGui::SliderInt("# starting humans", &m_simSettings.numHumans, 1,5000);
+
+    if (ImGui::Button("Defaults")) { m_simSettings = SimulationSettings(); }
+    ImGui::SameLine();
+    if (ImGui::Button("Restart")) { m_simulation.startSimulation(); }
+    ImGui::SameLine();
+    std::string buttonText = "Pause##togglePause";
+    if (m_paused)
+    {
+        buttonText = "Resume##togglePause";
+    }
+    if (ImGui::Button(buttonText.c_str())) { m_paused = !m_paused; }
+
+
+
+
+    ImGui::End(); // end window
 
 
     ImGui::SFML::Render(m_app->getWindow());
@@ -169,6 +226,7 @@ bool GameStateSimulate::handleMouseInputs(sf::Event event)
             eventMatch = true;
             break;
         }
+        default: break;
     }
 
     return eventMatch;

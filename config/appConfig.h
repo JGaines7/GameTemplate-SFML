@@ -6,12 +6,6 @@ namespace config
     const float MAX_ZOOM = 0.25;
     const float MIN_ZOOM = 4;
 
-    const sf::Color zombieColor = sf::Color::Red;
-    const sf::Color humanColor = sf::Color::Green;
-
-    const float zombieMaxSpeed = 0.8;
-    const float humanMaxSpeed = 0.75;
-
 }
 
 

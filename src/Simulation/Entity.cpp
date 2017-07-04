@@ -1,8 +1,8 @@
 #include "Entity.h"
 
-Entity::Entity()
+Entity::Entity(SimulationSettings* settings) : m_activeSimulationSettings(settings)
 {
-    //ctor
+
 }
 
 Entity::~Entity()

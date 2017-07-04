@@ -17,9 +17,8 @@
 					<Add option="-std=c++14" />
 					<Add option="-pg" />
 					<Add option="-g" />
-					<Add directory="libraries/sfgui/include" />
-					<Add directory="libraries/sfml2.4.2/include" />
-					<Add directory="include" />
+					<Add directory="include/Utilities" />
+					<Add directory="include/Simulation" />
 				</Compiler>
 				<Linker>
 					<Add option="-pg -lgmon" />
@@ -27,8 +26,6 @@
 					<Add library="sfml-window-d" />
 					<Add library="sfml-system-d" />
 					<Add library="sfgui-d" />
-					<Add directory="libraries/sfgui/lib" />
-					<Add directory="libraries/sfml2.4.2/lib" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -39,19 +36,15 @@
 				<Compiler>
 					<Add option="-fexpensive-optimizations" />
 					<Add option="-O3" />
-					<Add option="-Wall" />
 					<Add option="-std=c++14" />
-					<Add directory="libraries/sfml2.4.2/include" />
-					<Add directory="libraries/sfgui/include" />
-					<Add directory="include" />
+					<Add directory="include/Utilities" />
+					<Add directory="include/Simulation" />
 				</Compiler>
 				<Linker>
 					<Add library="sfml-graphics" />
 					<Add library="sfml-window" />
 					<Add library="sfml-system" />
 					<Add library="sfgui" />
-					<Add directory="libraries/sfml2.4.2/lib" />
-					<Add directory="libraries/sfgui/lib" />
 				</Linker>
 			</Target>
 		</Build>
@@ -61,35 +54,71 @@
 			<Add option="-fexceptions" />
 			<Add directory="libraries/sfgui/include" />
 			<Add directory="libraries/sfml2.4.2/include" />
+			<Add directory="include/GameState" />
+			<Add directory="include/Simulation" />
+			<Add directory="include/ResourceHandlers" />
+			<Add directory="include" />
+			<Add directory="imgui-master" />
+			<Add directory="include/Utilities" />
+			<Add directory="config" />
 		</Compiler>
 		<Linker>
+			<Add option="-lopengl32" />
 			<Add directory="libraries/sfgui/lib" />
 			<Add directory="libraries/sfml2.4.2/lib" />
 		</Linker>
 		<Unit filename="config/appConfig.h" />
+		<Unit filename="imgui-master/.travis.yml" />
+		<Unit filename="imgui-master/LICENSE" />
+		<Unit filename="imgui-master/README.md" />
+		<Unit filename="imgui-master/extra_fonts/Cousine-Regular.ttf" />
+		<Unit filename="imgui-master/extra_fonts/DroidSans.ttf" />
+		<Unit filename="imgui-master/extra_fonts/Karla-Regular.ttf" />
+		<Unit filename="imgui-master/extra_fonts/ProggyClean.ttf" />
+		<Unit filename="imgui-master/extra_fonts/ProggyTiny.ttf" />
+		<Unit filename="imgui-master/extra_fonts/README.txt" />
+		<Unit filename="imgui-master/extra_fonts/Roboto-Medium.ttf" />
+		<Unit filename="imgui-master/extra_fonts/binary_to_compressed_c.cpp" />
+		<Unit filename="imgui-master/imconfig.h" />
+		<Unit filename="imgui-master/imgui-SFML.cpp" />
+		<Unit filename="imgui-master/imgui-SFML.h" />
+		<Unit filename="imgui-master/imgui.cpp" />
+		<Unit filename="imgui-master/imgui.h" />
+		<Unit filename="imgui-master/imgui_demo.cpp" />
+		<Unit filename="imgui-master/imgui_draw.cpp" />
+		<Unit filename="imgui-master/imgui_internal.h" />
+		<Unit filename="imgui-master/stb_rect_pack.h" />
+		<Unit filename="imgui-master/stb_textedit.h" />
+		<Unit filename="imgui-master/stb_truetype.h" />
 		<Unit filename="include/Application.h" />
-		<Unit filename="include/Entity.h" />
-		<Unit filename="include/GameState.h" />
-		<Unit filename="include/GameStateSimulate.h" />
-		<Unit filename="include/GameStateStart.h" />
-		<Unit filename="include/SimRenderer.h" />
-		<Unit filename="include/Simulation.h" />
-		<Unit filename="include/StateManager.h" />
-		<Unit filename="include/StateStack.h" />
-		<Unit filename="include/Zombie.h" />
+		<Unit filename="include/GameState/GameState.h" />
+		<Unit filename="include/GameState/GameStateSimulate.h" />
+		<Unit filename="include/GameState/GameStateStart.h" />
+		<Unit filename="include/GameState/StateManager.h" />
+		<Unit filename="include/ResourceHandlers/ResourceEnums.h" />
+		<Unit filename="include/ResourceHandlers/ResourceHolder.h" />
+		<Unit filename="include/ResourceHandlers/ResourceHolder.inl" />
+		<Unit filename="include/Simulation/Entity.h" />
+		<Unit filename="include/Simulation/Human.h" />
+		<Unit filename="include/Simulation/SimConfig.h" />
+		<Unit filename="include/Simulation/SimRenderer.h" />
+		<Unit filename="include/Simulation/Simulation.h" />
+		<Unit filename="include/Simulation/Zombie.h" />
+		<Unit filename="include/Utilities/VectorUtilities.h" />
+		<Unit filename="include/Utilities/ViewportUtilities.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Application.cpp" />
-		<Unit filename="src/Entity.cpp" />
-		<Unit filename="src/GameState.cpp">
-			<Option virtualFolder="src/" />
-		</Unit>
-		<Unit filename="src/GameStateSimulate.cpp" />
-		<Unit filename="src/GameStateStart.cpp" />
-		<Unit filename="src/SimRenderer.cpp" />
-		<Unit filename="src/Simulation.cpp" />
-		<Unit filename="src/StateManager.cpp" />
-		<Unit filename="src/StateStack.cpp" />
-		<Unit filename="src/Zombie.cpp" />
+		<Unit filename="src/GameState/GameState.cpp" />
+		<Unit filename="src/GameState/GameStateSimulate.cpp" />
+		<Unit filename="src/GameState/GameStateStart.cpp" />
+		<Unit filename="src/GameState/StateManager.cpp" />
+		<Unit filename="src/Simulation/Entity.cpp" />
+		<Unit filename="src/Simulation/Human.cpp" />
+		<Unit filename="src/Simulation/SimRenderer.cpp" />
+		<Unit filename="src/Simulation/Simulation.cpp" />
+		<Unit filename="src/Simulation/Zombie.cpp" />
+		<Unit filename="src/Utilities/VectorUtilities.cpp" />
+		<Unit filename="src/Utilities/ViewportUtilities.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

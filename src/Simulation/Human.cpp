@@ -1,14 +1,9 @@
 #include "Human.h"
 #include "appConfig.h"
 #include "VectorUtilities.h"
-Human::Human()
+Human::Human(SimulationSettings* settings) : Entity(settings)
 {
-    m_health = 10;
-    m_maxSpeed = 10;
     m_updateGroup = 0;
-    setRadius(4);
-    setFillColor(config::humanColor);
-    setOrigin(getRadius(),getRadius());
 }
 
 Human::~Human()
@@ -38,6 +33,6 @@ void Human::fleeClosestZombie(std::vector<Zombie>& targets)
         }
     }
 
-    //modify direction torward hume
-    setVelocity(VectorUtil::trunc(getVelocity() + (VectorUtil::norm(finalDirectionVec) * (1.0005f / (minDist* 2))), config::humanMaxSpeed));
+    //modify direction away from zombler
+    setVelocity(VectorUtil::trunc(getVelocity() + (VectorUtil::norm(finalDirectionVec) * (m_activeSimulationSettings->humanAccelaration / (minDist * m_activeSimulationSettings->humanTrackingFalloff))), m_activeSimulationSettings->humanMaxSpeed));
 }

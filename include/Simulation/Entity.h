@@ -1,12 +1,15 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 #include <SFML/Graphics.hpp>
+#include "SimConfig.h"
+
+
 //Base movable entity for our game.
 //Position/size/rotation properties provided by sf::Sprite
-class Entity : public sf::CircleShape
+class Entity : public sf::Sprite
 {
     public:
-        Entity();
+        Entity(SimulationSettings* settings);
         virtual ~Entity();
 
         void setVelocity(sf::Vector2f vel) { m_velocity = vel;}
@@ -25,6 +28,8 @@ class Entity : public sf::CircleShape
         unsigned int m_health;
         unsigned int m_maxSpeed;
         unsigned int m_updateGroup; //only some entities will be updated per tick, based on group.
+
+        SimulationSettings* m_activeSimulationSettings;
 
 
 };
