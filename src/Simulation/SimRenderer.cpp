@@ -12,58 +12,92 @@ SimRenderer::~SimRenderer()
     //dtor
 }
 
-void SimRenderer::renderSimulation(sf::RenderWindow& window, sf::View& viewport, Simulation& sim)
+void SimRenderer::renderSimulation(sf::RenderWindow& window, sf::View& viewport, bool drawAsVertices, Simulation& sim)
 {
+
+    sf::Clock clock;
     //draw background (until tilemap);
     drawBg(window, viewport, sim);
+
+    if(sim.getSimulationSettings().drawQuadsRadioInput == 1)
+    {
+        auto tree = sim.getQuadTree("humans");
+        if(tree != nullptr)
+        {
+            window.draw(*tree);
+        }
+    }
+
+    if(sim.getSimulationSettings().drawQuadsRadioInput == 2)
+    {
+        auto tree = sim.getQuadTree("zombies");
+        if(tree != nullptr)
+        {
+            window.draw(*tree);
+        }
+    }
+
+
+
     drawWorldBounds(window, viewport, sim);
 
-    //cull zombies to viewport.
+
+    //cull zombies to viewport. TODO
 
     sf::CircleShape circle;
-    float radius = sim.getSimulationSettings().humanRadius;
-    circle.setRadius(radius);
-    circle.setFillColor(sim.getSimulationSettings().humanColor);
-    circle.setOrigin(radius,radius);
-
-    for (auto& human : sim.getHumans())
+    if(sim.getSimulationSettings().highlightZombies)
     {
-        circle.setPosition(human.getPosition());
-        window.draw(circle);
+        circle.setRadius(100);
+        circle.setFillColor(sf::Color(255,0,0,55));
+        circle.setOrigin(100,100);
     }
 
-    radius = sim.getSimulationSettings().zombieRadius;
-    circle.setRadius(radius);
-    circle.setFillColor(sim.getSimulationSettings().zombieColor);
-    circle.setOrigin(radius,radius);
-    for (auto& zomb : sim.getZombies())
+    if(!drawAsVertices)
     {
-        circle.setPosition(zomb.getPosition());
-        window.draw(circle);
+        for (auto& human : sim.getHumans())
+        {
+            window.draw(*human);
+        }
+
+        for (auto& zomb : sim.getZombies())
+        {
+            if(sim.getSimulationSettings().highlightZombies)
+            {
+             circle.setPosition(zomb->getPosition());
+             window.draw(circle);
+            }
+
+            window.draw(*zomb);
+        }
+    }
+    else
+    {
+
     }
 
+    sf::VertexArray pointArray(sf::Points, 0);
+    pointArray.setPrimitiveType(sf::Points);
 
+    for( auto& zomb : sim.getZombies())
+    {
+        if(sim.getSimulationSettings().highlightZombies)
+        {
+         circle.setPosition(zomb->getPosition());
+         window.draw(circle);
+        }
 
+        pointArray.append(sf::Vertex(zomb->getPosition(), sf::Color::Red));
 
+    }
+    window.draw(pointArray);
+    pointArray.clear();
+    for( auto& human : sim.getHumans())
+    {
 
+        pointArray.append(sf::Vertex(human->getPosition(), sf::Color::Green));
 
-
-//Vertex point based drawing. (old)
-
-//    sf::VertexArray zombPointArray(sf::Points, 0);
-//    zombPointArray.setPrimitiveType(sf::Points);
-//
-//    sf::CircleShape renderShape;
-//    renderShape.setFillColor(config::zombieColor);
-//    renderShape.setRadius()
-//
-//    for( auto& zomb : sim.getZombies())
-//    {
-//        zombPointArray.append(sf::Vertex(zomb.getPosition(), sf::Color::White));
-//
-//    }
-
-    //window.draw(zombPointArray);
+    }
+    window.draw(pointArray);
 
 
 }

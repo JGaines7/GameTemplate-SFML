@@ -30,6 +30,7 @@ class Application
         bool m_appHasFocus = true; //Does window have focus (assume true initially)
 
 
+
         void mainLoop();
 
         //internal helpers

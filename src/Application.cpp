@@ -25,7 +25,6 @@ Application::Application() : m_stateManager(this)
     //load textures and stuff.
 
 
-
     //start mainloop
     mainLoop();
 }

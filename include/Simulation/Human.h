@@ -13,7 +13,7 @@ class Human : public Entity
         Human(SimulationSettings* settings);
         virtual ~Human();
 
-        void fleeClosestZombie(std::vector<Zombie>& targets);
+        void fleeClosest(std::vector<Entity*>& targets);
 
     protected:
 

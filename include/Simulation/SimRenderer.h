@@ -11,7 +11,7 @@ class SimRenderer
         SimRenderer();
         virtual ~SimRenderer();
 
-        void renderSimulation(sf::RenderWindow& window, sf::View& viewport, Simulation& sim);
+        void renderSimulation(sf::RenderWindow& window, sf::View& viewport, bool drawAsVertices, Simulation& sim);
 
     protected:
 

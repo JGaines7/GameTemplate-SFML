@@ -24,6 +24,9 @@ class GameStateSimulate : public GameState
         Simulation m_simulation;
         SimRenderer m_renderer;
 
+        //View control variables
+        sf::Vector2i m_panningAnchor;
+        bool m_panning = false;
         float m_zoomLevel;
 
         void renderSimulation();

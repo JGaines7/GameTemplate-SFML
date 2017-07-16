@@ -661,11 +661,12 @@
 	<string>
 	<vector>
 
-1498451309 source:c:\users\grunkie7\documents\github\gameproject\main.cpp
+1500169937 source:c:\users\grunkie7\documents\github\gameproject\main.cpp
 	"Application.h"
 	<memory>
+	<SFML/graphics.hpp>
 
-1498950299 c:\users\grunkie7\documents\github\gameproject\include\application.h
+1499918072 c:\users\grunkie7\documents\github\gameproject\include\application.h
 	<GameState.h>
 	"StateManager.h"
 	"ResourceHolder.h"
@@ -1068,7 +1069,7 @@
 1498428647 source:c:\users\grunkie7\documents\github\gameproject\src\gamestate.cpp
 	"GameState.h"
 
-1498973216 source:c:\users\grunkie7\documents\github\gameproject\src\application.cpp
+1500169765 source:c:\users\grunkie7\documents\github\gameproject\src\application.cpp
 	<iostream>
 	<cassert>
 	"Application.h"
@@ -1143,7 +1144,7 @@
 	"SimRenderer.h"
 	<iostream>
 
-1499051361 c:\users\grunkie7\documents\github\gameproject\config\appconfig.h
+1500241173 c:\users\grunkie7\documents\github\gameproject\config\appconfig.h
 	<SFML/graphics.hpp>
 
 1498944509 c:\users\grunkie7\documents\github\gameproject\include\resourceholder.h
@@ -1288,7 +1289,7 @@
 1498948416 c:\users\grunkie7\documents\github\gameproject\include\gamestate\gamestatestart.h
 	"GameState/GameState.h"
 
-1499190293 c:\users\grunkie7\documents\github\gameproject\include\gamestate\gamestatesimulate.h
+1500171394 c:\users\grunkie7\documents\github\gameproject\include\gamestate\gamestatesimulate.h
 	<Simulation.h>
 	"GameState/GameState.h"
 	"Zombie.h"
@@ -1296,12 +1297,13 @@
 	"imgui.h"
 	"imgui-sfml.h"
 
-1499187047 c:\users\grunkie7\documents\github\gameproject\include\simulation\simulation.h
+1500180784 c:\users\grunkie7\documents\github\gameproject\include\simulation\simulation.h
 	<SFML/Graphics.hpp>
 	"Human.h"
 	"Zombie.h"
+	"QuadTree.h"
 
-1499049635 c:\users\grunkie7\documents\github\gameproject\include\simulation\zombie.h
+1500173208 c:\users\grunkie7\documents\github\gameproject\include\simulation\zombie.h
 	"Entity.h"
 	"Human.h"
 	"SimConfig.h"
@@ -1310,16 +1312,17 @@
 	<SFML/Graphics.hpp>
 	"SimConfig.h"
 
-1499145417 c:\users\grunkie7\documents\github\gameproject\include\simulation\simrenderer.h
+1500240815 c:\users\grunkie7\documents\github\gameproject\include\simulation\simrenderer.h
 	<SFML/Graphics.hpp>
 	"Simulation.h"
 
 1498943909 c:\users\grunkie7\documents\github\gameproject\include\resourcehandlers\resourceenums.h
 
-1499190334 source:c:\users\grunkie7\documents\github\gameproject\src\gamestate\gamestatesimulate.cpp
+1500241246 source:c:\users\grunkie7\documents\github\gameproject\src\gamestate\gamestatesimulate.cpp
 	"GameStateSimulate.h"
 	"Application.h"
 	"../config/appConfig.h"
+	"ViewportUtilities.h"
 	<stdlib.h>
 	<cassert>
 
@@ -1339,13 +1342,13 @@
 1499049590 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\entity.cpp
 	"Entity.h"
 
-1499183524 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\simrenderer.cpp
+1500241114 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\simrenderer.cpp
 	"SimRenderer.h"
 	<iostream>
 	"ViewportUtilities.h"
 	"appConfig.h"
 
-1499189219 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\simulation.cpp
+1500182400 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\simulation.cpp
 	"Simulation.h"
 	<stdlib.h>
 	<cmath>
@@ -1353,7 +1356,7 @@
 	"VectorUtilities.h"
 	"appConfig.h"
 
-1499185348 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\zombie.cpp
+1500176966 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\zombie.cpp
 	"Zombie.h"
 	"appConfig.h"
 	"VectorUtilities.h"
@@ -1365,22 +1368,31 @@
 1498953309 c:\users\grunkie7\documents\github\gameproject\include\utilities\viewportutilities.h
 	<SFML/graphics.hpp>
 
-1499049635 c:\users\grunkie7\documents\github\gameproject\include\simulation\human.h
+1500177209 c:\users\grunkie7\documents\github\gameproject\include\simulation\human.h
 	"Entity.h"
 	"Zombie.h"
 	"SimConfig.h"
 
-1499185344 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\human.cpp
+1500177162 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\human.cpp
 	"Human.h"
 	"appConfig.h"
 	"VectorUtilities.h"
 
 1498960099 source:c:\users\grunkie7\documents\github\gameproject\src\utilities\vectorutilities.cpp
 
-1499146048 c:\users\grunkie7\documents\github\gameproject\include\utilities\vectorutilities.h
+1500169937 c:\users\grunkie7\documents\github\gameproject\include\utilities\vectorutilities.h
 	<SFML/graphics.hpp>
 	<cmath>
 
-1499189852 c:\users\grunkie7\documents\github\gameproject\include\simulation\simconfig.h
-	"SFML/graphics.hpp"
+1500182336 c:\users\grunkie7\documents\github\gameproject\include\simulation\simconfig.h
+	"SFML/Graphics.hpp"
+
+1500175436 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\quadtree.cpp
+	"QuadTree.h"
+	<iostream>
+	"VectorUtilities.h"
+
+1500178772 c:\users\grunkie7\documents\github\gameproject\include\simulation\quadtree.h
+	<SFML/Graphics.hpp>
+	"Entity.h"
 

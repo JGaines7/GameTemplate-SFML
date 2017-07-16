@@ -100,6 +100,7 @@
 		<Unit filename="include/ResourceHandlers/ResourceHolder.inl" />
 		<Unit filename="include/Simulation/Entity.h" />
 		<Unit filename="include/Simulation/Human.h" />
+		<Unit filename="include/Simulation/QuadTree.h" />
 		<Unit filename="include/Simulation/SimConfig.h" />
 		<Unit filename="include/Simulation/SimRenderer.h" />
 		<Unit filename="include/Simulation/Simulation.h" />
@@ -114,6 +115,7 @@
 		<Unit filename="src/GameState/StateManager.cpp" />
 		<Unit filename="src/Simulation/Entity.cpp" />
 		<Unit filename="src/Simulation/Human.cpp" />
+		<Unit filename="src/Simulation/QuadTree.cpp" />
 		<Unit filename="src/Simulation/SimRenderer.cpp" />
 		<Unit filename="src/Simulation/Simulation.cpp" />
 		<Unit filename="src/Simulation/Zombie.cpp" />

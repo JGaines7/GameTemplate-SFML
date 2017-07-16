@@ -2,9 +2,49 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Release" />
-	<File name="imgui-master\imgui_demo.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Simulation\Entity.cpp" open="1" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="32579" topLine="611" />
+			<Cursor1 position="155" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Simulation\Human.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="896" topLine="4" />
+		</Cursor>
+	</File>
+	<File name="src\Simulation\QuadTree.cpp" open="1" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2939" topLine="72" />
+		</Cursor>
+	</File>
+	<File name="src\Simulation\SimRenderer.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1142" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Simulation\Simulation.cpp" open="1" top="1" tabpos="16" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4715" topLine="174" />
+		</Cursor>
+	</File>
+	<File name="src\Simulation\Zombie.cpp" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="186" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\GameState\GameState.h" open="1" top="0" tabpos="23" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="439" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Utilities\VectorUtilities.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\GameState\GameStateSimulate.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1171" topLine="13" />
 		</Cursor>
 	</File>
 	<File name="src\Utilities\ViewportUtilities.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -12,14 +52,64 @@
 			<Cursor1 position="468" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="config\appConfig.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="216" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Application.h" open="1" top="0" tabpos="26" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1007" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="imgui-master\imgui_demo.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="28282" topLine="517" />
+		</Cursor>
+	</File>
+	<File name="include\Simulation\Entity.h" open="1" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="855" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Simulation\Human.h" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Simulation\QuadTree.h" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="274" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Simulation\SimConfig.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="255" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="imgui-master\imgui.h" open="1" top="0" tabpos="24" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="92872" topLine="1006" />
+		</Cursor>
+	</File>
+	<File name="include\Simulation\SimRenderer.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="48" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Simulation\Simulation.h" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1896" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Simulation\Zombie.h" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="344" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="include\Utilities\VectorUtilities.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="134" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Utilities\VectorUtilities.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="include\Utilities\ViewportUtilities.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -32,40 +122,20 @@
 			<Cursor1 position="90" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\Application.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Application.cpp" open="1" top="0" tabpos="25" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="439" topLine="0" />
+			<Cursor1 position="630" topLine="6" />
 		</Cursor>
 	</File>
 	<File name="src\GameState\GameStateSimulate.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4110" topLine="114" />
+			<Cursor1 position="505" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\Simulation\Human.cpp" open="1" top="1" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\GameState\GameStateStart.cpp" open="1" top="0" tabpos="22" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="874" topLine="4" />
+			<Cursor1 position="281" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\Simulation\SimRenderer.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2001" topLine="59" />
-		</Cursor>
-	</File>
-	<File name="config\appConfig.h" open="0" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="162" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Application.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="681" topLine="3" />
-		</Cursor>
-	</File>
-	<File name="include\Simulation\SimRenderer.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="471" topLine="0" />
-		</Cursor>
-	</File>
-	<EditorTabsLayout layout="09711338595b0ae80000173a00000002=0;GameProject:imgui-master\imgui_demo.cpp,1;GameProject:src\Simulation\SimRenderer.cpp,2;GameProject:include\Simulation\SimRenderer.h,3;GameProject:include\Utilities\ViewportUtilities.h,4;GameProject:include\Utilities\VectorUtilities.h,5;GameProject:src\Utilities\VectorUtilities.cpp,6;GameProject:src\Utilities\ViewportUtilities.cpp,7;GameProject:src\GameState\GameStateSimulate.cpp,*8;GameProject:src\Simulation\Human.cpp@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=822;besth=323;minw=822;minh=323;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=09711338595b0ae80000173a00000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
+	<EditorTabsLayout layout="0a240eb0596af730000010b500000002=0;GameProject:imgui-master\imgui_demo.cpp,1;GameProject:src\Simulation\SimRenderer.cpp,2;GameProject:include\Simulation\SimRenderer.h,3;GameProject:include\Utilities\ViewportUtilities.h,4;GameProject:include\Utilities\VectorUtilities.h,5;GameProject:src\Utilities\VectorUtilities.cpp,6;GameProject:src\Utilities\ViewportUtilities.cpp,7;GameProject:src\GameState\GameStateSimulate.cpp,8;GameProject:src\Simulation\Human.cpp,9;GameProject:include\Simulation\SimConfig.h,10;GameProject:config\appConfig.h,11;GameProject:include\GameState\GameStateSimulate.h,12;GameProject:include\Simulation\Zombie.h,13;GameProject:src\Simulation\Zombie.cpp,14;GameProject:include\Simulation\Human.h,*15;GameProject:src\Simulation\Simulation.cpp,16;GameProject:include\Simulation\Simulation.h,17;GameProject:src\Simulation\Entity.cpp,18;GameProject:include\Simulation\QuadTree.h,19;GameProject:src\Simulation\QuadTree.cpp,20;GameProject:include\Simulation\Entity.h,21;GameProject:src\GameState\GameStateStart.cpp,22;GameProject:include\GameState\GameState.h,23;GameProject:imgui-master\imgui.h,24;GameProject:src\Application.cpp,25;GameProject:include\Application.h@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=821;besth=323;minw=821;minh=323;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=0a240eb0596af730000010b500000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
 </CodeBlocks_layout_file>

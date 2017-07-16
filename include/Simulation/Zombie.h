@@ -12,7 +12,7 @@ class Zombie : public Entity
         Zombie(SimulationSettings* settings);
         virtual ~Zombie();
 
-        void chaseClosestHuman(std::vector<Human>& targets);
+        void chaseClosest(std::vector<Entity*>& targets);
 
     protected:
 

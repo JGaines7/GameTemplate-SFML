@@ -11,7 +11,7 @@ Human::~Human()
     //dtor
 }
 
-void Human::fleeClosestZombie(std::vector<Zombie>& targets)
+void Human::fleeClosest(std::vector<Entity*>& targets)
 {
 
     if (targets.size() == 0) return;
@@ -22,7 +22,7 @@ void Human::fleeClosestZombie(std::vector<Zombie>& targets)
 
     for(auto& target : targets)
     {
-        sf::Vector2f deltaVec =  getPosition() - target.getPosition();
+        sf::Vector2f deltaVec =  getPosition() - target->getPosition();
 
         float dist = std::abs(VectorUtil::mag(deltaVec));
 
@@ -32,7 +32,7 @@ void Human::fleeClosestZombie(std::vector<Zombie>& targets)
             finalDirectionVec = deltaVec;
         }
     }
-
+    if(minDist > 300) return;
     //modify direction away from zombler
     setVelocity(VectorUtil::trunc(getVelocity() + (VectorUtil::norm(finalDirectionVec) * (m_activeSimulationSettings->humanAccelaration / (minDist * m_activeSimulationSettings->humanTrackingFalloff))), m_activeSimulationSettings->humanMaxSpeed));
 }

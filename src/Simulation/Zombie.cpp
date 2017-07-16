@@ -12,7 +12,7 @@ Zombie::~Zombie()
     //dtor
 }
 
-void Zombie::chaseClosestHuman(std::vector<Human>& targets)
+void Zombie::chaseClosest(std::vector<Entity*>& targets)
 {
 
     if (targets.size() == 0) return;
@@ -23,18 +23,20 @@ void Zombie::chaseClosestHuman(std::vector<Human>& targets)
 
     for(auto& target : targets)
     {
-        sf::Vector2f deltaVec = target.getPosition() - getPosition();
-
+        sf::Vector2f deltaVec = target->getPosition() - getPosition();
         float dist = std::abs(VectorUtil::mag(deltaVec));
 
         if(dist < minDist)
         {
             minDist = dist;
             finalDirectionVec = deltaVec;
+
         }
     }
 
+    if(minDist > 300) return;
+    auto val = VectorUtil::trunc(this->getVelocity() + (VectorUtil::norm(finalDirectionVec) * (m_activeSimulationSettings->zombieAccelaration)), m_activeSimulationSettings->zombieMaxSpeed);
     //modify direction torward hume
-    setVelocity(VectorUtil::trunc(getVelocity() + (VectorUtil::norm(finalDirectionVec) * (m_activeSimulationSettings->zombieAccelaration / (minDist))), m_activeSimulationSettings->zombieMaxSpeed));
+    setVelocity(val);
 }
 
