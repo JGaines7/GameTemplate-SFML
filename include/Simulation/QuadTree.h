@@ -15,7 +15,7 @@ class QuadTree : public sf::Drawable
         void insert(Entity* entityPtr); //assuming entities will all be rectangular sprites. soft references
         std::vector<Entity*> retrieve(sf::Rect<float> inputRect) const; //return list of objects under key that possibly collide with input rect
 
-
+        void remove(Entity* entityPtr);
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 
@@ -27,6 +27,7 @@ class QuadTree : public sf::Drawable
         static const int MAX_LEVELS = 6;
 
         void split();
+        void remove_recurse(Entity* entPtr, sf::Rect<float> inputRect);
         std::vector<int> findEncompassingNode(sf::Rect<float>) const;
 
         std::vector<Entity*> m_entityList;

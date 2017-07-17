@@ -6,6 +6,8 @@
 
 //Base movable entity for our game.
 //Position/size/rotation properties provided by sf::Sprite
+
+
 class Entity : public sf::Sprite
 {
     public:

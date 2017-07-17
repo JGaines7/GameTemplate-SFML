@@ -2,10 +2,14 @@
 #define SIMULATION_H
 
 #include <SFML/Graphics.hpp>
+#include "Entity.h"
 #include "Human.h"
 #include "Zombie.h"
 #include "QuadTree.h"
+#include "EntityManager.h"
+#include "EntityTypes.h"
 
+class Entity;
 //Simulation holds everything relevant to running a simulation. Map, configuration, zombie/human positions, etc.
 //This class should stay agnostic to any rendering details.
 class Simulation
@@ -27,31 +31,23 @@ class Simulation
 
         void startSimulation();
 
-        const std::vector<std::unique_ptr<Zombie>>& getZombies() const { return m_zombies;}
-        const std::vector<std::unique_ptr<Human>>& getHumans() const { return m_humans;}
+        const std::vector<Entity*> getZombies() const { return m_entityManager.getEntityList(EntityType::ENT_ZOMBIE);}
+        const std::vector<Entity*> getHumans() const { return m_entityManager.getEntityList(EntityType::ENT_HUMAN);}
 
-         QuadTree* getQuadTree(std::string key)  { return m_quadTrees[key].get();}
+        const QuadTree* getQuadTree(EntityType type) const { return m_entityManager.getQuadTree(type);}
 
 
     protected:
 
     private:
 
-        std::vector<std::unique_ptr<Zombie>> m_zombies;
-        std::vector<std::unique_ptr<Human>> m_humans;
+        EntityManager m_entityManager;
 
-        sf::Vector2f m_target;
         SimulationSettings m_settings;
 
-        std::map<std::string, std::unique_ptr<QuadTree>> m_quadTrees;
-
         unsigned int m_currentUpdateGroup = 0;
-        int nextUpdateGroup() {m_currentUpdateGroup = (m_currentUpdateGroup + 1) % m_maxGroups; return m_currentUpdateGroup;}
-
-
         const unsigned int m_maxGroups = 5;
-
-        //Map m_map
+        int nextUpdateGroup() {m_currentUpdateGroup = (m_currentUpdateGroup + 1) % m_maxGroups; return m_currentUpdateGroup;}
 
         //helpers
         sf::Vector2f randomDrift(float factor);
@@ -59,6 +55,7 @@ class Simulation
         void handleBorderCollisions();
         void handleBorderCollision(Entity& ent, float rad);
         void checkKills();
+        void moveEntities();
 
         void randomSpawnSettings(Entity& ent);
 

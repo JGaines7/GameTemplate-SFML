@@ -1069,7 +1069,7 @@
 1498428647 source:c:\users\grunkie7\documents\github\gameproject\src\gamestate.cpp
 	"GameState.h"
 
-1500169765 source:c:\users\grunkie7\documents\github\gameproject\src\application.cpp
+1500253101 source:c:\users\grunkie7\documents\github\gameproject\src\application.cpp
 	<iostream>
 	<cassert>
 	"Application.h"
@@ -1297,18 +1297,21 @@
 	"imgui.h"
 	"imgui-sfml.h"
 
-1500180784 c:\users\grunkie7\documents\github\gameproject\include\simulation\simulation.h
+1500263218 c:\users\grunkie7\documents\github\gameproject\include\simulation\simulation.h
 	<SFML/Graphics.hpp>
+	"Entity.h"
 	"Human.h"
 	"Zombie.h"
 	"QuadTree.h"
+	"EntityManager.h"
+	"EntityTypes.h"
 
 1500173208 c:\users\grunkie7\documents\github\gameproject\include\simulation\zombie.h
 	"Entity.h"
 	"Human.h"
 	"SimConfig.h"
 
-1499051925 c:\users\grunkie7\documents\github\gameproject\include\simulation\entity.h
+1500253196 c:\users\grunkie7\documents\github\gameproject\include\simulation\entity.h
 	<SFML/Graphics.hpp>
 	"SimConfig.h"
 
@@ -1342,13 +1345,14 @@
 1499049590 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\entity.cpp
 	"Entity.h"
 
-1500241114 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\simrenderer.cpp
+1500257471 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\simrenderer.cpp
 	"SimRenderer.h"
 	<iostream>
 	"ViewportUtilities.h"
 	"appConfig.h"
+	"EntityTypes.h"
 
-1500182400 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\simulation.cpp
+1500263218 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\simulation.cpp
 	"Simulation.h"
 	<stdlib.h>
 	<cmath>
@@ -1387,12 +1391,26 @@
 1500182336 c:\users\grunkie7\documents\github\gameproject\include\simulation\simconfig.h
 	"SFML/Graphics.hpp"
 
-1500175436 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\quadtree.cpp
+1500263533 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\quadtree.cpp
 	"QuadTree.h"
 	<iostream>
 	"VectorUtilities.h"
 
-1500178772 c:\users\grunkie7\documents\github\gameproject\include\simulation\quadtree.h
+1500261152 c:\users\grunkie7\documents\github\gameproject\include\simulation\quadtree.h
 	<SFML/Graphics.hpp>
 	"Entity.h"
+
+1500261146 c:\users\grunkie7\documents\github\gameproject\include\simulation\entitymanager.h
+	"Entity.h"
+	"Human.h"
+	"Zombie.h"
+	"QuadTree.h"
+	"EntityTypes.h"
+	<SFML/Graphics.hpp>
+
+1500261235 source:c:\users\grunkie7\documents\github\gameproject\src\simulation\entitymanager.cpp
+	"EntityManager.h"
+	<iostream>
+
+1500253449 c:\users\grunkie7\documents\github\gameproject\include\simulation\entitytypes.h
 

@@ -2,6 +2,7 @@
 #include <iostream>
 #include "ViewportUtilities.h"
 #include "appConfig.h"
+#include "EntityTypes.h"
 SimRenderer::SimRenderer()
 {
     //ctor
@@ -21,7 +22,7 @@ void SimRenderer::renderSimulation(sf::RenderWindow& window, sf::View& viewport,
 
     if(sim.getSimulationSettings().drawQuadsRadioInput == 1)
     {
-        auto tree = sim.getQuadTree("humans");
+        auto tree = sim.getQuadTree(EntityType::ENT_HUMAN);
         if(tree != nullptr)
         {
             window.draw(*tree);
@@ -30,7 +31,7 @@ void SimRenderer::renderSimulation(sf::RenderWindow& window, sf::View& viewport,
 
     if(sim.getSimulationSettings().drawQuadsRadioInput == 2)
     {
-        auto tree = sim.getQuadTree("zombies");
+        auto tree = sim.getQuadTree(EntityType::ENT_ZOMBIE);
         if(tree != nullptr)
         {
             window.draw(*tree);
@@ -52,14 +53,42 @@ void SimRenderer::renderSimulation(sf::RenderWindow& window, sf::View& viewport,
         circle.setOrigin(100,100);
     }
 
+    auto viewportPosition = ViewportUtil::getViewportTopLeft(viewport);
+    auto viewportSize = viewport.getSize();
+    sf::Rect<float> viewportRect(viewportPosition, viewportSize);
+
     if(!drawAsVertices)
     {
         for (auto& human : sim.getHumans())
         {
-            window.draw(*human);
+            if(human->getGlobalBounds().intersects(viewportRect))
+            {
+                window.draw(*human);
+            }
+
+
         }
 
         for (auto& zomb : sim.getZombies())
+        {
+            if(zomb->getGlobalBounds().intersects(viewportRect))
+            {
+                if(sim.getSimulationSettings().highlightZombies)
+                {
+                 circle.setPosition(zomb->getPosition());
+                 window.draw(circle);
+                }
+
+                window.draw(*zomb);
+            }
+        }
+    }
+    else
+    {
+        sf::VertexArray pointArray(sf::Points, 0);
+        pointArray.setPrimitiveType(sf::Points);
+
+        for( auto& zomb : sim.getZombies())
         {
             if(sim.getSimulationSettings().highlightZombies)
             {
@@ -67,37 +96,21 @@ void SimRenderer::renderSimulation(sf::RenderWindow& window, sf::View& viewport,
              window.draw(circle);
             }
 
-            window.draw(*zomb);
+            pointArray.append(sf::Vertex(zomb->getPosition(), sf::Color::Red));
+
         }
-    }
-    else
-    {
-
-    }
-
-    sf::VertexArray pointArray(sf::Points, 0);
-    pointArray.setPrimitiveType(sf::Points);
-
-    for( auto& zomb : sim.getZombies())
-    {
-        if(sim.getSimulationSettings().highlightZombies)
+        window.draw(pointArray);
+        pointArray.clear();
+        for( auto& human : sim.getHumans())
         {
-         circle.setPosition(zomb->getPosition());
-         window.draw(circle);
+
+            pointArray.append(sf::Vertex(human->getPosition(), sf::Color::Green));
+
         }
-
-        pointArray.append(sf::Vertex(zomb->getPosition(), sf::Color::Red));
-
+        window.draw(pointArray);
     }
-    window.draw(pointArray);
-    pointArray.clear();
-    for( auto& human : sim.getHumans())
-    {
 
-        pointArray.append(sf::Vertex(human->getPosition(), sf::Color::Green));
 
-    }
-    window.draw(pointArray);
 
 
 }

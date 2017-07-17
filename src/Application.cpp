@@ -61,8 +61,8 @@ void Application::mainLoop()
 void Application::updateState()
 {
     if(m_nextState != GameStateEnum::NA)
-        {
-             m_stateManager.updateState(m_nextState);
-             m_nextState = GameStateEnum::NA;
-        }
+    {
+         m_stateManager.updateState(m_nextState);
+         m_nextState = GameStateEnum::NA;
+    }
 }
